@@ -1,5 +1,7 @@
-# xieyuqiang
-# 2018-6-4
+# a simple seq2seq model
+# author: IndexFziQ
+# email: IndexFziQ@gmail.com
+# It learns from pemywei's seq2seq model. The more annotations is wanted.
 
 import ops
 import tensorflow as tf
@@ -56,8 +58,8 @@ def rnn_encoder(cell, inputs, sequence_length, parallel_iterations=None,
     return outputs, state
 
 def encoder(cell_fw, cell_bw, inputs, sequence_length,
-            parallel_iterations=None, swap_memory=False,
-            dtype=None, scope=None)
+            parallel_iterations=None, swap_memory=False, dtype=None, 
+            scope=None)
     time_dim = 0
     batch_dim = 1
 
@@ -75,4 +77,12 @@ def encoder(cell_fw, cell_bw, inputs, sequence_length,
                                             batch_dim)
 
         with tf.variable_scope("background"):
-            output_bw
+            output_bw, state_bw = rnn_encoder(cell_bw, inputs_reverse, 
+                                            sequence_length, 
+                                            parallel_iterations, swap_memory, 
+                                            dtype)
+            
+            output_bw = tf.reverse_sequence(output_bw, seq_lengths, seq_dim,
+                                            time_dim, batch_dim)
+
+    return tf.concat([output_fw, output_bw], 2)
