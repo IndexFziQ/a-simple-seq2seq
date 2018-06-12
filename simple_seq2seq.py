@@ -1,7 +1,7 @@
 # a simple seq2seq model
 # author: IndexFziQ
 # email: IndexFziQ@gmail.com
-# It learns from pemywei's seq2seq model. The more annotations is wanted.
+# It learns from pemywei's seq2seq model. The more annotations are wanted.
 
 import ops
 import tensorflow as tf
