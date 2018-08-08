@@ -1,4 +1,4 @@
-# simple-seq2seq
+# A simple seq2seq model
 
-##Motivation
+## Motivation
 The aim is to learn the seq2seq model and the method to bulid it.
