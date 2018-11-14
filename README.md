@@ -3,4 +3,4 @@
 ## Motivation
 The aim is to learn the seq2seq model and more details are expected.
 
-Thanks for the project provided by *pemywei@github.com*.
+Thanks for the project provided by *github.com/pemywei*.
